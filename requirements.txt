@@ -1,0 +1,8 @@
+numpy==1.13.3
+scipy
+rpy2
+flask
+sparqlwrapper
+requests
+py_stringmatching
+Pillow

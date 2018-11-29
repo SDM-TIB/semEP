@@ -6,7 +6,7 @@
 # Copying:  MIT License
 
 import sys, os
-from flask import Flask, jsonify, abort, make_response, request, send_from_directory, send_file, make_response
+from flask import Flask, jsonify, abort, request, send_from_directory, send_file
 from semEP_node_wrapper import run_wrapper
 import logging
 
@@ -117,7 +117,7 @@ def run_semep_node_service():
     #logger.info("Sending the results in JSON format")
 
     response = make_response(result, 200)
-    response.mimetype = "application/javascript"
+    #response.mimetype = "application/javascript"
     return response
 
 def run_service():
@@ -127,8 +127,8 @@ def main(*args):
     if len(args) == 1:
         myhost = args[0]
     else:
-        myhost = "127.0.0.1"
-    app.run(debug=True, host=myhost)
+        myhost = "0.0.0.0"
+    app.run(debug=False, host=myhost)
     
 if __name__ == '__main__':
      main(*sys.argv[1:])

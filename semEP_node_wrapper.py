@@ -4,15 +4,14 @@
 #
 # Copying:  MIT License
 import glob
-import sys, os, shutil, numpy, datetime, rdflib
-from _ast import Set
+import sys, os, numpy
 
-import PyPDF2 as PyPDF2
-import pandas
+
+
 from PIL import Image
 from SPARQLWrapper import SPARQLWrapper, JSON
 from time import time
-import json, csv
+import json
 from os import listdir
 from os.path import isfile, join
 from distributions import compare_distributions
