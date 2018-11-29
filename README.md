@@ -12,7 +12,7 @@ Setup the variable with the iASiS endpoint.
 
 For example:
 
-`export IASISKG_ENDPOINT=http://10.114.113.14:8181/sparql`
+`export IASISKG_ENDPOINT=http://node2.research.tib.eu:19191/sparql`
 
 Execute
 
@@ -20,7 +20,7 @@ Execute
 
 ### Example of calls to service
 
-curl -H "Content-Type: application/json" -X POST -d '{"selection": {"gender": ["M", "F"], "age": {"from": 20, "to": 90}, "tumorStage": ["I","III", "IV", "II"]}, "parameter": ["gender" ,"age", "tumorStage", "toxicHabits", "mutationType"]}' http://0.0.0.0:5001/semepnode --output example.json
+curl -H "Content-Type: application/json" -X POST -d '{"top_clusters": [4], "selection": {"gender": ["C0025266", "C0043210"], "age": {"from":20, "to": 90}, "tumorStage": ["C0027651","C0152013", "C0024121", "C4304521", "C0242379", "C0001418"], "surgery": ["True", "False"]}, "parameter": ["tki", "gender" ,"age", "tumorStage", "familiarAntecedents", "brainMetastasis"]}' http://10.115.83.140:5000/semepnode --output output/output.json
 
 ## Documentation:
 
