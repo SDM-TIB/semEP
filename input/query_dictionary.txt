@@ -1,0 +1,16 @@
+gender,?p1 <http://project-iasis.eu/vocab/gender> ?gender.
+age,?p1 <http://project-iasis.eu/vocab/hasDiagnosis> ?d1.***?d1 <http://project-iasis.eu/vocab/hasDiagnosisAge> ?age.
+tumorStage,?p1 <http://project-iasis.eu/vocab/hasDiagnosis> ?d1.***?d1 <http://project-iasis.eu/vocab/hasDiagnosisTumorStage> ?tumorStage.
+performanceStatus,?p1 <http://project-iasis.eu/vocab/hasDiagnosis> ?d1.***?d1 <http://project-iasis.eu/vocab/hasDiagnosisPerformanceStatus> ?PerformanceStatus.
+date,?p1 <http://project-iasis.eu/vocab/hasDiagnosis> ?d1.***?d1 <http://project-iasis.eu/vocab/hasDiagnosisDate> ?date.
+immunotherapy,?p1 <http://project-iasis.eu/vocab/immunotherapy> ?immunotherapy.
+chemotherapy,?p1 <http://project-iasis.eu/vocab/chemotherapy> ?chemotherapy.
+tki,?p1 <http://project-iasis.eu/vocab/tki> ?tki.
+surgery,?p1 <http://project-iasis.eu/vocab/surgery> ?surgery.
+antiangiogentic,?p1 <http://project-iasis.eu/vocab/antiangiogentic> ?antiangiogentic.
+radiationtherapy,?p1 <http://project-iasis.eu/vocab/radiationtherapy> ?radiationtherapy.
+familiarAntecedents,?p1 <http://project-iasis.eu/vocab/familiarAntecedents> ?familiarAntecedents.
+systemicProgression,?p1 <http://project-iasis.eu/vocab/systemicProgression> ?systemicProgression.
+localProgression,?p1 <http://project-iasis.eu/vocab/localProgression> ?localProgression.
+brainMetastasis,?p1 <http://project-iasis.eu/vocab/brainMetastasis> ?brainMetastasis.
+survivalMonths,?p1 <http://project-iasis.eu/vocab/survivalMonths> ?survivalMonths.

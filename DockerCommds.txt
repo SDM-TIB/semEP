@@ -1,0 +1,24 @@
+Build the image:
+docker build -t semep_node_service:latest .
+
+Run the service:
+docker run -p 5001:5001 -e IASISKG_ENDPOINT='http://10.114.113.14:8181/sparql' semep_node_service:latest
+
+TAG the image:
+docker tag semep_node_service:latest gpalma/semep_node_service:latest
+
+docker login
+
+Push the image:
+docker push ariam/semep_node_service:latest
+
+Pull and run the image:
+docker run -p 5002:5001 -e IASISKG_ENDPOINT='http://10.114.113.14:8181/sparql' ariam/semep_node_service:latest
+
+
+
+
+
+
+
+docker run -p 18890:8890 -e IASISKG_ENDPOINT='localhost:8890/sparql' semep_node_service:latest

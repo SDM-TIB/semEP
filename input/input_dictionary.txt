@@ -1,0 +1,4 @@
+gender,<http://project-iasis.eu/Gender
+age,http://www.w3.org/2001/XMLSchema#
+tumorStage,<http://project-iasis.eu/LCPatient/TumorStage
+survivalMonths,<http://project-iasis.eu/vocab/survivalMonths
