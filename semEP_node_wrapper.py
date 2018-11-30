@@ -5,8 +5,7 @@
 # Copying:  MIT License
 import glob
 import sys, os, numpy
-
-
+import zipfile
 
 from PIL import Image
 from SPARQLWrapper import SPARQLWrapper, JSON
@@ -19,6 +18,7 @@ from distributions import compare_distributions
 import rpy2.robjects as ro
 
 import rpy2.robjects.numpy2ri
+
 
 rpy2.robjects.numpy2ri.activate()
 
@@ -342,7 +342,6 @@ def aux2(l):
 
 
 def compute_percentile(sim, percentile):
-
     return numpy.percentile(sim, percentile)
 
 
@@ -401,21 +400,17 @@ def get_dicc_clusters(onlyfiles):
 
 
 def call_semEP(threshold):
-    EXE_SEM_EP = "sudo docker run -it --rm -v "
-    DIR_SEM_EP = ":/data kemele/semepnode:23-05-2018 semEP-node"
+    # EXE_SEM_EP = "sudo docker run -it --rm -v "
+    # DIR_SEM_EP = ":/data kemele/semepnode:23-05-2018 semEP-node"
+    DIR_SEM_EP = "semEP-node"
     current_path = os.path.dirname(os.path.realpath(__file__))
     th = "{:.4f}".format(float(threshold))
 
-    commd = EXE_SEM_EP + "" + current_path + "" + DIR_SEM_EP + " " + ENTITIES_FILE + " " + MATRIX_FILE + " " + str(th)
-    # print("Command to execute " + commd)
+    commd = current_path + "/" + DIR_SEM_EP + " " + ENTITIES_FILE + " " + MATRIX_FILE + " " + str(th)
     os.system(commd)
     pattern = ENTITIES_FILE.replace(".txt", "")
 
     results_folder = glob.glob(current_path + "/" + pattern + "-*")
-
-    print("sudo chown -R rivas:rivas " + results_folder[0] + "*")
-
-    os.system("sudo chown -R rivas:rivas " + results_folder[0] + "*")
 
     onlyfiles = [os.path.join(results_folder[0], f) for f in listdir(results_folder[0]) if
                  isfile(join(results_folder[0], f))]
@@ -428,7 +423,7 @@ def call_semEP(threshold):
     return dicc_clusters
 
 
-def generate_results(top_clusters, dict_top_cluster, population):
+def generate_result_json(top_clusters, dict_top_cluster, population):
     results = {}
     results["TopDifferentClusters"] = top_clusters
     results["DistributionsInTopClusters"] = dict_top_cluster
@@ -436,7 +431,7 @@ def generate_results(top_clusters, dict_top_cluster, population):
     result_json = json.dumps(results, indent=4)
     # print("Resutls JSON:")
     # print(result_json)
-    return result_json
+    create_filter_dictionary(result_json)
 
 
 def get_patient_graph(filter, sentence_where, end_point):
@@ -458,7 +453,7 @@ def get_parameter_projection(filter1, sentence_where, sentence_construct, set_se
                                 construct_dicc)
     # print("QUERY_CONSTRUCT:", query)
     sparql_ins = SPARQLWrapper(end_point)
-    print("Waiting for the SPARQL Endpoint")
+    #print("Waiting for the SPARQL Endpoint")
     c_results = sendSPARQL(sparql_ins=sparql_ins, origin_query=query, num_paging=50000000, len_max=sys.maxsize)
     # print(qresults)
 
@@ -608,17 +603,40 @@ def plot_heatmap(file):
       dev.off()
     }
     """
-    #pdf(file="output/Plot.pdf")
+    # pdf(file="output/Plot.pdf")
     ro.r(codigo_r)
     code_py = ro.globalenv['heatmap_plot']
     read = code_py(file)
 
     imagen = Image.open("output/Plot.eps")
-    imagen.show()
-    #pdf_file = open("output/Plot.pdf")
-    #read_pdf = PyPDF2.PdfFileReader(pdf_file)
+    #imagen.show()
+    # pdf_file = open("output/Plot.pdf")
+    # read_pdf = PyPDF2.PdfFileReader(pdf_file)
 
-    return read
+
+
+def create_filter_dictionary(resutls_json):
+    with open("output/Population.json", "w") as fd:
+        fd.write(resutls_json)
+
+def create_output_zip():
+    try:
+        import zlib
+
+        compression = zipfile.ZIP_DEFLATED
+    except:
+        compression = zipfile.ZIP_STORED
+    current_path = os.path.dirname(os.path.realpath(__file__))
+    print(current_path)
+    zf = zipfile.ZipFile("output/all_results.zip", mode="w")
+    try:
+        zf.write(TO_PLOT, compress_type=compression)
+        zf.write("output/Plot.eps", compress_type=compression)
+        zf.write("output/Population.json", compress_type=compression)
+
+    finally:
+        zf.close()
+
 
 
 ##################################
@@ -651,10 +669,11 @@ def run_wrapper(end_point, request):
     file_csv = get_file_plot(population, dict_top_cluster)
 
     get_csv_to_plot(file_csv)
-    aa = plot_heatmap(TO_PLOT)
+    plot_heatmap(TO_PLOT)
+    generate_result_json(top_clusters, dict_top_cluster, population)
+    create_output_zip()
 
-    resutls_json = generate_results(top_clusters, dict_top_cluster, population)
-    return resutls_json
+    #return resutls_json
 
 
 def load_files():

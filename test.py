@@ -1,4 +1,4 @@
-
+import os
 
 import rpy2.robjects as ro
 
@@ -6,7 +6,24 @@ import rpy2.robjects as ro
 import rpy2.robjects.numpy2ri
 rpy2.robjects.numpy2ri.activate()
 
+import zipfile
 
+TO_PLOT = "output/file_to_plot.csv"
+try:
+    import zlib
+
+    compression = zipfile.ZIP_DEFLATED
+except:
+    compression = zipfile.ZIP_STORED
+current_path = os.path.dirname(os.path.realpath(__file__))
+print(current_path)
+zf = zipfile.ZipFile("output/output11.zip", mode="w")
+try:
+    zf.write(TO_PLOT, compress_type=compression)
+    zf.write("output/Plot.eps", compress_type=compression)
+
+finally:
+    zf.close()
 
 
 
