@@ -14,3 +14,5 @@ systemicProgression,?p1 <http://project-iasis.eu/vocab/systemicProgression> ?sys
 localProgression,?p1 <http://project-iasis.eu/vocab/localProgression> ?localProgression.
 brainMetastasis,?p1 <http://project-iasis.eu/vocab/brainMetastasis> ?brainMetastasis.
 survivalMonths,?p1 <http://project-iasis.eu/vocab/survivalMonths> ?survivalMonths.
+bioEgfr,?p1 <http://project-iasis.eu/vocab/bioEgfr> ?bioEgfr.
+smoker,?p1 <http://project-iasis.eu/vocab/smoker> ?smoker.

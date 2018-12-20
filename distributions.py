@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import copy
 from scipy import stats
 
 MIN_NUM_ELEM = 3
@@ -134,10 +135,11 @@ def graph_cluster(distributions, uri):
 
 
 def normarlization_all_parametres(population_dist, size):
-    for predicate in population_dist:
-        for obj in population_dist[predicate]:
-            population_dist[predicate][obj] = population_dist[predicate][obj] / size
-    return population_dist
+    copy_population = copy.deepcopy(population_dist)
+    for predicate in copy_population:
+        for obj in copy_population[predicate]:
+            copy_population[predicate][obj] = copy_population[predicate][obj] / size
+    return copy_population
 
 
 def get_size(population):
@@ -168,7 +170,8 @@ def compare_distributions(distributions, clusters, top_cluster, set_parameter, p
 
     top_clusters, dict_top_cluster = clusters_top(ks_2, clusters, top_cluster, sample)
 
-    return top_clusters, dict_top_cluster, population
+
+    return top_clusters, dict_top_cluster, population, diff_cluster, population_dist
 
 
 def main(*args):

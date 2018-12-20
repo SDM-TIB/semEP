@@ -41,7 +41,7 @@ DICTIONARY_QUERY = "input/query_dictionary.txt"
 DICTIONARY_CONSTRUCT = "input/construct_dictionary.txt"
 boolean_value = ["biomarkers", "bioEgfr", "bioAlk", "bioRos1", "chemotherapy", "tki", "immunotherapy",
                  "antiangiogenic", "radiationtherapy", "surgery", "familialAntecedents", "systemicProgression",
-                 "localProgression", "brainMetastasis"]
+                 "localProgression", "brainMetastasis", "smoker"]
 TO_PLOT = "output/file_to_plot.csv"
 
 ############################
@@ -436,11 +436,10 @@ def generate_result_json(top_clusters, dict_top_cluster, population):
 
 def get_patient_graph(filter, sentence_where, end_point):
     query = get_query(filter, sentence_where)
-    print("QUERY patient:", query)
+    #print("QUERY patient:", query)
     sparql_ins = SPARQLWrapper(end_point)
-    print("Waiting for the SPARQL Endpoint")
+    #print("Waiting for the SPARQL Endpoint")
     qresults = sendSPARQL(sparql_ins=sparql_ins, origin_query=query, num_paging=50000000, len_max=sys.maxsize)
-    # print(qresults)
 
     if len(qresults) == 0:
         # return EMPTY_JSON
@@ -455,7 +454,6 @@ def get_parameter_projection(filter1, sentence_where, sentence_construct, set_se
     sparql_ins = SPARQLWrapper(end_point)
     #print("Waiting for the SPARQL Endpoint")
     c_results = sendSPARQL(sparql_ins=sparql_ins, origin_query=query, num_paging=50000000, len_max=sys.maxsize)
-    # print(qresults)
 
     if len(c_results) == 0:
         return EMPTY_JSON
@@ -465,18 +463,15 @@ def get_parameter_projection(filter1, sentence_where, sentence_construct, set_se
 
 def get_matrix(filter1, sentence_where, to_similarity_where, to_similarity_filter, end_point):
     query_similarity = get_query_similarity(filter1, sentence_where, to_similarity_where, to_similarity_filter)
-    # print("Query_matrix:", query_similarity)
+    #print("Query_matrix:", query_similarity)
     sparql_ins = SPARQLWrapper(end_point)
     print("Waiting for the SPARQL Endpoint")
     qresults = sendSPARQL(sparql_ins=sparql_ins, origin_query=query_similarity, num_paging=100000,
                           len_max=sys.maxsize)
-    # print(qresults)
 
     if len(qresults) == 0:
         # return EMPTY_JSON
         return None
-    # print("print SIMILARITY-PATIENT ")
-    # print(qresults)
 
     graph = get_triples_data(qresults)
     return graph
@@ -524,12 +519,12 @@ def get_all_parameter(population):
     return list_parameter
 
 
-def case_true_false(key1, key2):
+def case_literal_object(key1, key2):
     column = ""
-    if key2 in ["True", "False"]:
+    if key2 in ["True", "False", "former", "no", "current", "former", "None"]:
         array = key1.split("/")
         column = array[len(array) - 1]
-    column += key2
+    column += ":" + key2
     return column
 
 
@@ -538,7 +533,7 @@ def modify_column(column):
     if len(array) > 2:
         a = array[len(array) - 2]
         b = array[len(array) - 1]
-        column = a + b
+        column = a + ":" + b
     return column
 
 
@@ -555,12 +550,12 @@ def get_file_plot(population, dict_top_cluster):
         key2 = string[1]
         for cluster in dict_top_cluster:
             if key2 in dict_top_cluster[cluster][key1]:
-                column = case_true_false(key1, key2)
+                column = case_literal_object(key1, key2)
                 column = modify_column(column)
                 file_csv[cluster][column] = dict_top_cluster[cluster][key1][key2]
                 file_csv[name][column] = population[key1][key2]
             else:
-                column = case_true_false(key1, key2)
+                column = case_literal_object(key1, key2)
                 column = modify_column(column)
                 file_csv[cluster][column] = 0
                 file_csv[name][column] = population[key1][key2]
@@ -626,8 +621,7 @@ def create_output_zip():
         compression = zipfile.ZIP_DEFLATED
     except:
         compression = zipfile.ZIP_STORED
-    current_path = os.path.dirname(os.path.realpath(__file__))
-    print(current_path)
+    #current_path = os.path.dirname(os.path.realpath(__file__))
     zf = zipfile.ZipFile("output/all_results.zip", mode="w")
     try:
         zf.write(TO_PLOT, compress_type=compression)
@@ -656,24 +650,20 @@ def run_wrapper(end_point, request):
     print("Elapsed time (get_matrix(): " + str(elapsed_time))
     sim, size_population = processing_similarity_data(graph2)
     threshold = compute_percentile(sim, PERCENTILE)
-
     clusters = call_semEP(threshold)
     c_results = get_parameter_projection(filter1, sentence_where, sentence_construct, set_selection, set_parameter,
                                          construct_dicc, end_point)
-    # print("num_Clusters")
-    # print(len(clusters))
     distributions, predicate_list, cluster_list, population_dist = compute_distributions(clusters, c_results)
-    top_clusters, dict_top_cluster, population = compare_distributions(distributions, clusters, top_cluster,
+
+    top_clusters, dict_top_cluster, population, diff_cluster, pop = compare_distributions(distributions, clusters, top_cluster,
                                                                        set_parameter, population_dist, size_population)
 
     file_csv = get_file_plot(population, dict_top_cluster)
-
     get_csv_to_plot(file_csv)
     plot_heatmap(TO_PLOT)
-    generate_result_json(top_clusters, dict_top_cluster, population)
+    #generate_result_json(top_clusters, dict_top_cluster, population)
+    generate_result_json(top_clusters, diff_cluster, pop)
     create_output_zip()
-
-    #return resutls_json
 
 
 def load_files():
