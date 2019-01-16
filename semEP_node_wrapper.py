@@ -601,15 +601,10 @@ def plot_heatmap(file):
     #      setEPS()
     #  postscript("output/Plot.eps")
 
-    # pdf(file="output/Plot.pdf")
     ro.r(codigo_r)
     code_py = ro.globalenv['heatmap_plot']
     read = code_py(file)
 
-    #imagen = Image.open("output/Plot.eps")
-    #imagen.show()
-    # pdf_file = open("output/Plot.pdf")
-    # read_pdf = PyPDF2.PdfFileReader(pdf_file)
 
 
 
