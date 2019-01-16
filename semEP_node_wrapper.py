@@ -585,25 +585,28 @@ def plot_heatmap(file):
     codigo_r = """
     heatmap_plot <- function(dataset) {
       library(pheatmap)
-      setEPS()
-      postscript("output/Plot.eps")
+      pdf(file="output/Plot.pdf")
       profiling <- read.csv(dataset)
       m <- as.matrix(profiling[, -1])
       rownames(m) <- profiling$Comparison
       n.ind <- dim(profiling)[1]
       n_cluster<-dim(profiling$Comparison)[1]
-      pheatmap(m, scale = "none", clustering_distance_rows = "euclidean",
+      my_palette <- colorRampPalette(c("white", "black"))(n = 201)
+      pheatmap(m, color = my_palette, scale = "none", clustering_distance_rows = "euclidean",
                clustering_distance_cols = "euclidean", clustering_method = "average",
                cutree_rows = n.ind, fontsize = 11)
       dev.off()
     }
     """
+    #      setEPS()
+    #  postscript("output/Plot.eps")
+
     # pdf(file="output/Plot.pdf")
     ro.r(codigo_r)
     code_py = ro.globalenv['heatmap_plot']
     read = code_py(file)
 
-    imagen = Image.open("output/Plot.eps")
+    #imagen = Image.open("output/Plot.eps")
     #imagen.show()
     # pdf_file = open("output/Plot.pdf")
     # read_pdf = PyPDF2.PdfFileReader(pdf_file)
@@ -625,7 +628,7 @@ def create_output_zip():
     zf = zipfile.ZipFile("output/all_results.zip", mode="w")
     try:
         zf.write(TO_PLOT, compress_type=compression)
-        zf.write("output/Plot.eps", compress_type=compression)
+        zf.write("output/Plot.pdf", compress_type=compression)
         zf.write("output/Population.json", compress_type=compression)
 
     finally:

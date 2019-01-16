@@ -124,7 +124,7 @@ def send_zip_file():
     memory_file = BytesIO()
     with zipfile.ZipFile(memory_file, 'w') as zf:
         zf.write("output/file_to_plot.csv")
-        zf.write("output/Plot.eps")
+        zf.write("output/Plot.pdf")
         zf.write("output/Population.json")
     memory_file.seek(0)
     return send_file(memory_file, attachment_filename='capsule.zip', as_attachment=True)
