@@ -24,8 +24,10 @@ curl -H "Content-Type: application/json" -X POST -d '{"top_clusters": [4], "sele
 
 # Note
 If you use Postman tool::
+
 Request: 
 http://10.115.83.140:5000/semepnode
+
 HTTP (POST)
 
 Body:
