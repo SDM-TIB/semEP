@@ -22,7 +22,7 @@ Execute
 
 curl -H "Content-Type: application/json" -X POST -d '{"top_clusters": [4], "selection": {"gender": ["C0025266", "C0043210"], "age": {"from":20, "to": 90}, "tumorStage": ["C0027651","C0152013", "C0024121", "C4304521", "C0242379", "C0001418"], "surgery": ["True", "False"]}, "parameter": ["tki", "gender" ,"age", "tumorStage", "familiarAntecedents", "brainMetastasis"]}' http://10.115.83.140:5000/semepnode --output output/output.json
 
-#Note
+# Note
 If you use Postman tool::
 Request: 
 http://10.115.83.140:5000/semepnode
