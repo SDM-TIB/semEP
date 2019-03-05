@@ -2,7 +2,7 @@ Build the image:
 docker build -t ariam/semep_node_service:latest .
 
 Run the service:
-docker run --name semep_node_service -d -p 5001:5000 -e IASISKG_ENDPOINT='http://node2.research.tib.eu:19191/sparql' ariam/semep_node_service:latest
+docker run --name semep_node_service -d -p 5001:5000 -e IASISKG_ENDPOINT='http://node2.research.tib.eu:17171/sparql' ariam/semep_node_service:latest
 
 
 docker login

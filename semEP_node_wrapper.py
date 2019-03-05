@@ -6,6 +6,7 @@
 import glob
 import sys, os, numpy
 import zipfile
+import random
 
 from PIL import Image
 from SPARQLWrapper import SPARQLWrapper, JSON
@@ -100,8 +101,7 @@ F_INI = "?"
 
 F_AGE_INI = '(xsd:integer(?'
 
-
-def processing_similarity_data(graph):
+def processing_similarity_data1(graph):
     index_sim = {}
     patients = set()
     sim_value = []
@@ -111,6 +111,53 @@ def processing_similarity_data(graph):
             index_sim[key] = sim
             key = e2 + "**" + e1
             index_sim[key] = sim
+            if e1 not in patients:
+                key = e1 + "**" + e1
+                index_sim[key] = "1.0"
+            patients.add(e1)
+            if e2 not in patients:
+                key = e2 + "**" + e2
+                index_sim[key] = "1.0"
+            patients.add(e2)
+        elements = list(patients)
+
+        with open(MATRIX_FILE, "w") as fm:
+            s = ""
+            j = 1
+            size_population = len(elements)
+            #for w in range(size_population):
+            #    fm.write(str(",") + str(w))
+            #fm.write(str(",") + str(list(size_population)) + "\n")
+            #print(str(elements))
+            #fm.write("\n")
+            fd.write(str(size_population) + "\n")
+            for e1 in elements:
+                fm.write(str(e1) + "\n")
+                s += str(j) + ","
+                j += 1
+
+                for e2 in range(size_population):
+                    key = e1 + "**" + elements[e2]
+                    sim = index_sim[key]
+                    s += str(sim) + ","
+                    if e2 >= j:
+                        sim_value.append(float(sim))
+                s = s[:-1] + "\n"
+            #fm.write(s)
+
+    return sim_value, size_population
+
+
+def processing_similarity_data(graph):
+    index_sim = {}
+    patients = set()
+    sim_value = []
+    with open(ENTITIES_FILE, "w") as fd:
+        for (e1, e2, sim) in graph:
+            key = e1 + "**" + e2
+            index_sim[key] = abs(float(sim))
+            key = e2 + "**" + e1
+            index_sim[key] = abs(float(sim))
             if e1 not in patients:
                 key = e1 + "**" + e1
                 index_sim[key] = "1.0"
@@ -407,11 +454,12 @@ def call_semEP(threshold):
     th = "{:.4f}".format(float(threshold))
 
     commd = current_path + "/" + DIR_SEM_EP + " " + ENTITIES_FILE + " " + MATRIX_FILE + " " + str(th)
+    #print(commd)
     os.system(commd)
     pattern = ENTITIES_FILE.replace(".txt", "")
 
     results_folder = glob.glob(current_path + "/" + pattern + "-*")
-
+    #print(results_folder)
     onlyfiles = [os.path.join(results_folder[0], f) for f in listdir(results_folder[0]) if
                  isfile(join(results_folder[0], f))]
     dicc_clusters = get_dicc_clusters(onlyfiles)
@@ -591,7 +639,7 @@ def plot_heatmap(file):
       rownames(m) <- profiling$Comparison
       n.ind <- dim(profiling)[1]
       n_cluster<-dim(profiling$Comparison)[1]
-      my_palette <- colorRampPalette(c("white", "black"))(n = 201)
+      my_palette <- colorRampPalette(c("#686868", "#CED0CE", "#E6E8E6", "#B1C1C0", "#CCDAD1"))(n = 201)
       pheatmap(m, color = my_palette, scale = "none", clustering_distance_rows = "euclidean",
                clustering_distance_cols = "euclidean", clustering_method = "average",
                cutree_rows = n.ind, fontsize = 11)
@@ -628,6 +676,21 @@ def create_output_zip():
 
     finally:
         zf.close()
+
+def get_sample(clusters, size):
+    count = 0
+    sample = []
+    control = True
+    while len(sample) < size:
+        count+=1
+        for cl in clusters:
+            length_cluster = len(clusters[cl])
+            while(control & count <= length_cluster):
+                rand = random.randrange(length_cluster)
+                if clusters[cl][rand] not in sample:
+                    sample.append(clusters[cl][rand])
+                    control = False
+
 
 
 

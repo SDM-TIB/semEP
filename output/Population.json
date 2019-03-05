@@ -1,312 +1,197 @@
 {
     "TopDifferentClusters": [
+        "Cluster-10",
         "Cluster-8",
         "Cluster-1",
-        "Cluster-2",
-        "Cluster-5"
+        "Cluster-9"
     ],
     "DistributionsInTopClusters": [
         {
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 16,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 33,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 28,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 17,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 4,
-                "http://project-iasis.eu/LCPatient/TumorStage/C4304521": 1
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0043210": 45,
+                "http://project-iasis.eu/Gender/C0025266": 102
             },
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 82,
-                "Age 56-65": 9,
-                "Age >75": 8
+                "Age 66-75": 119,
+                "Age 56-65": 19,
+                "Age >75": 9
             },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 63,
-                "True": 36
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 91,
+                "no": 49,
+                "current": 6,
+                "None": 1
             },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 38,
-                "True": 61
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 73,
-                "True": 26
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0043210": 36,
-                "http://project-iasis.eu/Gender/C0025266": 63
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 123,
+                "True": 24
             }
         },
         {
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 33,
-                "http://project-iasis.eu/Gender/C0043210": 20
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 12,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 17,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 16,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 2,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 6
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 40,
-                "True": 13
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 42,
-                "True": 11
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "True": 37,
-                "False": 16
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 44,
-                "Age 56-65": 8,
-                "Age >75": 1
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 1,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 2
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 2
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 2
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "True": 2
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0043210": 1,
-                "http://project-iasis.eu/Gender/C0025266": 1
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 57,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 27,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 18,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 26,
-                "http://project-iasis.eu/LCPatient/TumorStage/C4304521": 2,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 6
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "True": 76,
-                "False": 60
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 112,
-                "Age 56-65": 12,
-                "Age >75": 12
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0043210": 48,
-                "http://project-iasis.eu/Gender/C0025266": 88
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 107,
-                "True": 29
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 116,
-                "True": 20
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 22,
-                "True": 5
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 25,
-                "True": 2
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 26,
-                "True": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 17,
-                "Age >75": 7,
-                "Age 56-65": 3
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 21,
-                "http://project-iasis.eu/Gender/C0043210": 6
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 7,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 4,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 11,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 4,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 1
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age >75": 1
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 1
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0043210": 1
-            }
-        },
-        {
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 3,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 3,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 18,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 9,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 5
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 35,
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 82,
                 "True": 3
             },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 25,
-                "True": 13
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 38
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 60,
+                "Age >75": 18,
+                "Age 56-65": 7
             },
             "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 26,
-                "http://project-iasis.eu/Gender/C0043210": 12
+                "http://project-iasis.eu/Gender/C0025266": 66,
+                "http://project-iasis.eu/Gender/C0043210": 19
             },
-            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 32,
-                "Age >75": 4,
-                "Age 56-65": 2
+            "http://project-iasis.eu/vocab/smoker": {
+                "current": 22,
+                "former": 53,
+                "no": 10
             }
         },
         {
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 2
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 2
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 2
-            },
             "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 2
+                "http://project-iasis.eu/Gender/C0025266": 1
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 1
+            },
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 1
             },
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 1,
-                "Age 56-65": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 1,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 1
+                "Age 66-75": 1
             }
         },
         {
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-                "Age 66-75": 51,
-                "Age >75": 14,
-                "Age 56-65": 4
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 16,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 17,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 14,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 16,
-                "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 5,
-                "http://project-iasis.eu/LCPatient/TumorStage/C4304521": 1
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 58,
-                "True": 11
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 61,
-                "True": 8
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "True": 31,
-                "False": 38
+                "Age 56-65": 25,
+                "Age 66-75": 150,
+                "Age >75": 25
             },
             "http://project-iasis.eu/vocab/gender": {
-                "http://project-iasis.eu/Gender/C0025266": 46,
-                "http://project-iasis.eu/Gender/C0043210": 23
+                "http://project-iasis.eu/Gender/C0025266": 141,
+                "http://project-iasis.eu/Gender/C0043210": 59
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 119,
+                "no": 59,
+                "current": 22
+            },
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 168,
+                "True": 32
             }
         },
         {
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
                 "Age 66-75": 1
             },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 1
-            },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 1
+            "http://project-iasis.eu/vocab/smoker": {
+                "current": 1
             },
             "http://project-iasis.eu/vocab/gender": {
                 "http://project-iasis.eu/Gender/C0043210": 1
+            },
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 1
             }
         },
         {
+            "http://project-iasis.eu/vocab/smoker": {
+                "no": 1
+            },
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0043210": 1
+            },
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 1
+            },
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 1
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/smoker": {
+                "None": 1
+            },
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
                 "Age 66-75": 1
             },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 1
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0025266": 1
             },
-            "http://project-iasis.eu/vocab/tki": {
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 1
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/smoker": {
+                "no": 10,
+                "former": 13,
+                "current": 1
+            },
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0025266": 16,
+                "http://project-iasis.eu/Gender/C0043210": 8
+            },
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 23,
+                "Age 56-65": 1
+            },
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 20,
+                "True": 4
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 89,
+                "True": 6
+            },
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 70,
+                "Age >75": 23,
+                "Age 56-65": 2
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 55,
+                "current": 18,
+                "no": 20,
+                "None": 2
+            },
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0025266": 63,
+                "http://project-iasis.eu/Gender/C0043210": 32
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 153,
+                "True": 28
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 118,
+                "no": 35,
+                "current": 28
+            },
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0025266": 126,
+                "http://project-iasis.eu/Gender/C0043210": 55
+            },
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 142,
+                "Age >75": 28,
+                "Age 56-65": 11
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/bioEgfr": {
                 "False": 1
             },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 1
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age 66-75": 1
             },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
-                "False": 1
+            "http://project-iasis.eu/vocab/smoker": {
+                "former": 1
             },
             "http://project-iasis.eu/vocab/gender": {
                 "http://project-iasis.eu/Gender/C0025266": 1
@@ -316,52 +201,50 @@
             "http://project-iasis.eu/vocab/hasDiagnosisAge": {
                 "Age 66-75": 1
             },
-            "http://project-iasis.eu/vocab/familiarAntecedents": {
+            "http://project-iasis.eu/vocab/bioEgfr": {
                 "False": 1
-            },
-            "http://project-iasis.eu/vocab/brainMetastasis": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/tki": {
-                "False": 1
-            },
-            "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-                "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 1
             },
             "http://project-iasis.eu/vocab/gender": {
                 "http://project-iasis.eu/Gender/C0043210": 1
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "no": 1
+            }
+        },
+        {
+            "http://project-iasis.eu/vocab/bioEgfr": {
+                "False": 1
+            },
+            "http://project-iasis.eu/vocab/smoker": {
+                "no": 1
+            },
+            "http://project-iasis.eu/vocab/hasDiagnosisAge": {
+                "Age >75": 1
+            },
+            "http://project-iasis.eu/vocab/gender": {
+                "http://project-iasis.eu/Gender/C0025266": 1
             }
         }
     ],
     "Population": {
-        "http://project-iasis.eu/vocab/hasDiagnosisTumorStage": {
-            "http://project-iasis.eu/LCPatient/TumorStage/C0027651": 67,
-            "http://project-iasis.eu/LCPatient/TumorStage/C0152013": 131,
-            "http://project-iasis.eu/LCPatient/TumorStage/C0001418": 97,
-            "http://project-iasis.eu/LCPatient/TumorStage/C0242379": 104,
-            "http://project-iasis.eu/LCPatient/TumorStage/C0024121": 28,
-            "http://project-iasis.eu/LCPatient/TumorStage/C4304521": 4
+        "http://project-iasis.eu/vocab/gender": {
+            "http://project-iasis.eu/Gender/C0043210": 221,
+            "http://project-iasis.eu/Gender/C0025266": 518
         },
         "http://project-iasis.eu/vocab/hasDiagnosisAge": {
-            "Age 66-75": 345,
-            "Age 56-65": 39,
-            "Age >75": 47
+            "Age 66-75": 570,
+            "Age 56-65": 65,
+            "Age >75": 104
         },
-        "http://project-iasis.eu/vocab/tki": {
-            "False": 346,
-            "True": 85
+        "http://project-iasis.eu/vocab/smoker": {
+            "former": 451,
+            "no": 186,
+            "current": 98,
+            "None": 4
         },
-        "http://project-iasis.eu/vocab/familiarAntecedents": {
-            "False": 206,
-            "True": 225
-        },
-        "http://project-iasis.eu/vocab/brainMetastasis": {
-            "False": 356,
-            "True": 75
-        },
-        "http://project-iasis.eu/vocab/gender": {
-            "http://project-iasis.eu/Gender/C0043210": 149,
-            "http://project-iasis.eu/Gender/C0025266": 282
+        "http://project-iasis.eu/vocab/bioEgfr": {
+            "False": 642,
+            "True": 97
         }
     }
 }
